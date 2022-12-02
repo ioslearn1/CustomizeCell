@@ -13,6 +13,8 @@
 		20CBDD2C2939979700BC539C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20CBDD2A2939979700BC539C /* Main.storyboard */; };
 		20CBDD2E2939979900BC539C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20CBDD2D2939979900BC539C /* Assets.xcassets */; };
 		20CBDD312939979900BC539C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20CBDD2F2939979900BC539C /* LaunchScreen.storyboard */; };
+		20CBDD3929399D5E00BC539C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CBDD3829399D5E00BC539C /* HomeViewController.swift */; };
+		20CBDD3B29399F5500BC539C /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CBDD3A29399F5500BC539C /* CustomCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		20CBDD2D2939979900BC539C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		20CBDD302939979900BC539C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		20CBDD322939979900BC539C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		20CBDD3829399D5E00BC539C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		20CBDD3A29399F5500BC539C /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,8 @@
 				20CBDD242939979700BC539C /* AppDelegate.swift */,
 				20CBDD262939979700BC539C /* SceneDelegate.swift */,
 				20CBDD282939979700BC539C /* ViewController.swift */,
+				20CBDD3829399D5E00BC539C /* HomeViewController.swift */,
+				20CBDD3A29399F5500BC539C /* CustomCell.swift */,
 				20CBDD2A2939979700BC539C /* Main.storyboard */,
 				20CBDD2D2939979900BC539C /* Assets.xcassets */,
 				20CBDD2F2939979900BC539C /* LaunchScreen.storyboard */,
@@ -140,7 +146,9 @@
 			files = (
 				20CBDD292939979700BC539C /* ViewController.swift in Sources */,
 				20CBDD252939979700BC539C /* AppDelegate.swift in Sources */,
+				20CBDD3B29399F5500BC539C /* CustomCell.swift in Sources */,
 				20CBDD272939979700BC539C /* SceneDelegate.swift in Sources */,
+				20CBDD3929399D5E00BC539C /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
