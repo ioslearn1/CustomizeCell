@@ -21,7 +21,10 @@ class HomeViewController: UIViewController {
         view.backgroundColor = .white
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        tableView.register(CustomCell.self, forCellReuseIdentifier: CustomCell.identifier)
+//        tableView.register(CustomCell.self, forCellReuseIdentifier: CustomCell.identifier)
+        
+        tableView.register(TeamCustomCell.self, forCellReuseIdentifier: TeamCustomCell.identifier)
+        
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -41,8 +44,10 @@ extension HomeViewController:UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: CustomCell.identifier, for: indexPath) as? CustomCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TeamCustomCell.identifier, for: indexPath) as? CustomCell else { return UITableViewCell() }
         
+//        guard let cell = tableView.dequeueReusableCell(withIdentifier: CustomCell.identifier, for: indexPath) as? CustomCell else { return UITableViewCell() }
+//        
         return cell
     }
     

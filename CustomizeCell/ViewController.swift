@@ -20,6 +20,32 @@ class ViewController: UIViewController {
         return img
     }()
     
+    lazy var lbl1: UILabel = {
+        let lbl = UILabel()
+        lbl.textColor = .white
+        lbl.text = "FIFA WORLD"
+        lbl.font = UIFont.systemFont(ofSize: 44, weight: .bold)
+        return lbl
+    }()
+    
+    lazy var lbl2: UILabel = {
+        let lbl = UILabel()
+        lbl.textColor = .white
+        lbl.text = "CUP"
+        lbl.font = UIFont.systemFont(ofSize: 64, weight: .bold)
+        return lbl
+    }()
+    
+    lazy var btnEntry: UIButton = {
+        let btn = UIButton()
+        btn.layer.backgroundColor = UIColor.white.cgColor
+        btn.layer.cornerRadius = 24
+        btn.setTitle("Acceder", for: .normal)
+        btn.titleLabel?.font = UIFont.systemFont(ofSize: 30, weight: .bold)
+        btn.setTitleColor(UIColor(red: 0.59, green: 0.04, blue: 0.20, alpha: 1.00), for: .normal)
+        return btn
+    }()
+    
     override func viewWillAppear(_ animated: Bool) {
         setGradientBackground(color1: color1, color2: color2)
         super.viewWillAppear(animated)
@@ -38,15 +64,28 @@ class ViewController: UIViewController {
         logo.widthAnchor.constraint(equalToConstant: 200).isActive = true
         logo.heightAnchor.constraint(equalToConstant: 400).isActive = true
         
+        view.addSubview(lbl1)
+        lbl1.translatesAutoresizingMaskIntoConstraints = false
+        lbl1.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 130).isActive = true
+        lbl1.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3){
-            //eliminar la sig linea
-            self.goHome()
-        }
+        view.addSubview(lbl2)
+        lbl2.translatesAutoresizingMaskIntoConstraints = false
+        lbl2.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 180).isActive = true
+        lbl2.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
+        view.addSubview(btnEntry)
+        btnEntry.translatesAutoresizingMaskIntoConstraints = false
+        btnEntry.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 250).isActive = true
+        btnEntry.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        btnEntry.widthAnchor.constraint(equalToConstant: 250).isActive = true
+        
+        
+        btnEntry.addTarget(self, action: #selector(goHome), for: .touchUpInside)
+
     }
     
-    func goHome()  {
+    @objc func goHome()  {
         let vc = HomeViewController()
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true)
