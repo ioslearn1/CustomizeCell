@@ -15,6 +15,7 @@
 		20CBDD312939979900BC539C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20CBDD2F2939979900BC539C /* LaunchScreen.storyboard */; };
 		20CBDD3929399D5E00BC539C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CBDD3829399D5E00BC539C /* HomeViewController.swift */; };
 		20CBDD3B29399F5500BC539C /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CBDD3A29399F5500BC539C /* CustomCell.swift */; };
+		20CF9C892942BBBB00B0342A /* TeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CF9C882942BBBB00B0342A /* TeamViewController.swift */; };
 		6BB219442940E664003D0AE1 /* TeamCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB219432940E664003D0AE1 /* TeamCustomCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		20CBDD322939979900BC539C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		20CBDD3829399D5E00BC539C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		20CBDD3A29399F5500BC539C /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		20CF9C882942BBBB00B0342A /* TeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamViewController.swift; sourceTree = "<group>"; };
 		6BB219432940E664003D0AE1 /* TeamCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCustomCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,16 +64,17 @@
 		20CBDD232939979700BC539C /* CustomizeCell */ = {
 			isa = PBXGroup;
 			children = (
+				20CBDD322939979900BC539C /* Info.plist */,
 				20CBDD242939979700BC539C /* AppDelegate.swift */,
-				20CBDD262939979700BC539C /* SceneDelegate.swift */,
-				20CBDD282939979700BC539C /* ViewController.swift */,
-				20CBDD3829399D5E00BC539C /* HomeViewController.swift */,
 				20CBDD3A29399F5500BC539C /* CustomCell.swift */,
-				20CBDD2A2939979700BC539C /* Main.storyboard */,
+				20CBDD3829399D5E00BC539C /* HomeViewController.swift */,
+				20CBDD262939979700BC539C /* SceneDelegate.swift */,
+				6BB219432940E664003D0AE1 /* TeamCustomCell.swift */,
+				20CF9C882942BBBB00B0342A /* TeamViewController.swift */,
+				20CBDD282939979700BC539C /* ViewController.swift */,
 				20CBDD2D2939979900BC539C /* Assets.xcassets */,
 				20CBDD2F2939979900BC539C /* LaunchScreen.storyboard */,
-				20CBDD322939979900BC539C /* Info.plist */,
-				6BB219432940E664003D0AE1 /* TeamCustomCell.swift */,
+				20CBDD2A2939979700BC539C /* Main.storyboard */,
 			);
 			path = CustomizeCell;
 			sourceTree = "<group>";
@@ -153,6 +156,7 @@
 				20CBDD3B29399F5500BC539C /* CustomCell.swift in Sources */,
 				20CBDD272939979700BC539C /* SceneDelegate.swift in Sources */,
 				20CBDD3929399D5E00BC539C /* HomeViewController.swift in Sources */,
+				20CF9C892942BBBB00B0342A /* TeamViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

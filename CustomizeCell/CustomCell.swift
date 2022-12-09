@@ -26,6 +26,12 @@ class CustomCell: UITableViewCell {
         return img
     }()
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        imgLogo.image = nil
+        
+    }
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         

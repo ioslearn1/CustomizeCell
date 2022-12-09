@@ -9,6 +9,12 @@ class TeamCustomCell: UITableViewCell {
 
     static let identifier = "CustomCell"
     
+    lazy var viewGeneralContainer: UIView = {
+        let view = UIView()
+        view.layer.backgroundColor = UIColor.clear.cgColor
+        return view
+    }()
+    
     
     lazy var viewContainer: UIView = {
         let view = UIView()
@@ -16,19 +22,12 @@ class TeamCustomCell: UITableViewCell {
         view.layer.cornerRadius = 14
         return view
     }()
-    
-    lazy var viewGeneralContainer: UIView = {
-        let view = UIView()
-        view.layer.backgroundColor = UIColor.clear.cgColor
-        view.layer.cornerRadius = 14
-        return view
-    }()
-    
+
     lazy var avatarPlayer: UIImageView = {
         let img = UIImageView()
         img.contentMode = .scaleAspectFit
         img.clipsToBounds = true
-        img.layer.cornerRadius = 45
+        img.backgroundColor = .red
         img.image = UIImage(named: "player")
         return img
     }()
