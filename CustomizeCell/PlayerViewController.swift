@@ -17,6 +17,7 @@ class PlayerViewController: UIViewController {
         img.contentMode = .scaleAspectFit
         img.clipsToBounds = true
         img.image = UIImage(named: "player")
+        img.backgroundColor = .white
         return img
     }()
     
@@ -69,10 +70,10 @@ class PlayerViewController: UIViewController {
         title = "Player"
         view.addSubview(avatarPlayer)
         avatarPlayer.translatesAutoresizingMaskIntoConstraints = false
-        avatarPlayer.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        avatarPlayer.widthAnchor.constraint(equalTo: view.heightAnchor).isActive = true
         avatarPlayer.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
-        avatarPlayer.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8).isActive = true
-        avatarPlayer.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -300).isActive = true
+        avatarPlayer.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -view.frame.height/2.0).isActive = true
+        avatarPlayer.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         avatarPlayer.layer.cornerRadius = CGFloat(view.frame.height/2.0)
         
         view.addSubview(namePlayer)

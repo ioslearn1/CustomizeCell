@@ -49,6 +49,8 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         setGradientBackground(color1: color1, color2: color2)
         super.viewWillAppear(animated)
+        navigationItem.backBarButtonItem = UIBarButtonItem(
+            title: "", style: .plain, target: nil, action: nil)
     }
     
     override func viewDidLoad() {

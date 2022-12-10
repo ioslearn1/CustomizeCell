@@ -28,7 +28,7 @@ class TeamCustomCell: UITableViewCell {
         img.contentMode = .scaleAspectFit
         img.clipsToBounds = true
         img.backgroundColor = .red
-        img.image = UIImage(named: "player")
+        img.image = UIImage(named: "playerTable")
         return img
     }()
     
