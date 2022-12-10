@@ -11,7 +11,6 @@ import UIKit
 class TeamViewController: UIViewController {
     
     var team:String?
-    
     let datasource = ["Player"]
     
     var tableView: UITableView = {
@@ -33,7 +32,6 @@ class TeamViewController: UIViewController {
         view.backgroundColor = .white
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        
         tableView.register(TeamCustomCell.self, forCellReuseIdentifier: TeamCustomCell.identifier)
         
         tableView.delegate = self
@@ -44,13 +42,11 @@ class TeamViewController: UIViewController {
         tableView.backgroundColor = .white
         tableView.separatorStyle = .none
         
-        if let team = team {
-            print(":::: el team que se debe consultar es: \(team)")
-        }
+//        if let team = team {
+//            print(":::: el team que se debe consultar es: \(team)")
+//        }
     }
-
 }
-
 
 extension TeamViewController:UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -63,9 +59,14 @@ extension TeamViewController:UITableViewDataSource, UITableViewDelegate{
         return cell
     }
     
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let player = PlayerViewController(playerId: datasource[indexPath.row])
+        player.modalPresentationStyle = .fullScreen
+        self.present(player, animated: true)
     }
     
 }

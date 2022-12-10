@@ -9,7 +9,6 @@ class CustomCell: UITableViewCell {
 
     static let identifier = "CustomCell"
     
-    
     lazy var viewContainer: UIView = {
         let view = UIView()
         view.layer.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.00).cgColor
@@ -17,7 +16,15 @@ class CustomCell: UITableViewCell {
         return view
     }()
     
-    
+    lazy var lblTeamName: UILabel = {
+        let label = UILabel()
+        label.textColor = .black
+        label.textAlignment = .left
+        label.font = UIFont(name: "Helveticaneue-bold", size: 40)
+        label.text = "México"
+        return label
+    }()
+        
     lazy var imgLogo: UIImageView = {
         let img = UIImageView()
         img.contentMode = .scaleAspectFill
@@ -43,8 +50,8 @@ class CustomCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     func setupCell(){
+        
         contentView.addSubview(viewContainer)
         viewContainer.translatesAutoresizingMaskIntoConstraints = false
         viewContainer.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
@@ -59,8 +66,10 @@ class CustomCell: UITableViewCell {
         imgLogo.leadingAnchor.constraint(equalTo: viewContainer.leadingAnchor, constant: 8).isActive = true
         imgLogo.centerYAnchor.constraint(equalTo: viewContainer.centerYAnchor).isActive = true
         
+        contentView.addSubview(lblTeamName)
+        lblTeamName.translatesAutoresizingMaskIntoConstraints = false
+        lblTeamName.leadingAnchor.constraint(equalTo: viewContainer.leadingAnchor, constant: 100).isActive = true
+        lblTeamName.centerYAnchor.constraint(equalTo: viewContainer.centerYAnchor).isActive = true
+        
     }
-    
-     
-
 }

@@ -57,6 +57,7 @@ class ViewController: UIViewController {
     }
     
     func setupView() {
+        
         view.addSubview(logo)
         logo.translatesAutoresizingMaskIntoConstraints = false
         logo.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -100).isActive = true
@@ -79,8 +80,6 @@ class ViewController: UIViewController {
         btnEntry.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 250).isActive = true
         btnEntry.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         btnEntry.widthAnchor.constraint(equalToConstant: 250).isActive = true
-        
-        
         btnEntry.addTarget(self, action: #selector(goHome), for: .touchUpInside)
 
     }
@@ -90,7 +89,6 @@ class ViewController: UIViewController {
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true)
     }
-    
     
     func setGradientBackground(color1:UIColor, color2:UIColor){
         let gradientLayer = CAGradientLayer()

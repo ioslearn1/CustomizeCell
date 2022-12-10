@@ -112,7 +112,5 @@ class TeamCustomCell: UITableViewCell {
         avatarPlayer.centerYAnchor.constraint(equalTo: viewGeneralContainer.centerYAnchor).isActive = true
        
     }
-    
-     
 
 }
