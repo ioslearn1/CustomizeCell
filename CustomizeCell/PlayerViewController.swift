@@ -66,7 +66,7 @@ class PlayerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red: 0.93, green: 0.92, blue: 0.88, alpha: 1.00)
-        
+        title = "Player"
         view.addSubview(avatarPlayer)
         avatarPlayer.translatesAutoresizingMaskIntoConstraints = false
         avatarPlayer.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true

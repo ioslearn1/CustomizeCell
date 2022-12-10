@@ -18,6 +18,9 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "National Teams"
+        
         view.backgroundColor = .white
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
@@ -53,8 +56,7 @@ extension HomeViewController:UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let team = TeamViewController(team: datasource[indexPath.row])
-        team.modalPresentationStyle = .fullScreen
-        self.present(team, animated: true)
+        navigationController?.pushViewController(team, animated: true)
     }
     
 }

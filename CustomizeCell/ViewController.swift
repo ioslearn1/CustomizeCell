@@ -57,7 +57,6 @@ class ViewController: UIViewController {
     }
     
     func setupView() {
-        
         view.addSubview(logo)
         logo.translatesAutoresizingMaskIntoConstraints = false
         logo.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -100).isActive = true
@@ -86,8 +85,7 @@ class ViewController: UIViewController {
     
     @objc func goHome()  {
         let vc = HomeViewController()
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func setGradientBackground(color1:UIColor, color2:UIColor){

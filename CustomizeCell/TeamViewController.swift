@@ -30,7 +30,7 @@ class TeamViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        
+        title = "TeamName"
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.register(TeamCustomCell.self, forCellReuseIdentifier: TeamCustomCell.identifier)
         
@@ -41,10 +41,7 @@ class TeamViewController: UIViewController {
         tableView.frame = view.bounds
         tableView.backgroundColor = .white
         tableView.separatorStyle = .none
-        
-//        if let team = team {
-//            print(":::: el team que se debe consultar es: \(team)")
-//        }
+    
     }
 }
 
@@ -65,8 +62,7 @@ extension TeamViewController:UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let player = PlayerViewController(playerId: datasource[indexPath.row])
-        player.modalPresentationStyle = .fullScreen
-        self.present(player, animated: true)
+        navigationController?.pushViewController(player, animated: true)
     }
     
 }
