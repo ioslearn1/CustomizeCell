@@ -71,7 +71,7 @@ class TeamCustomCell: UITableViewCell {
     
     
     func setupCell(){
-        
+        contentView.backgroundColor = .yellow
         contentView.addSubview(viewGeneralContainer)
         viewGeneralContainer.translatesAutoresizingMaskIntoConstraints = false
         viewGeneralContainer.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true

@@ -21,7 +21,7 @@ class PlayerViewController: UIViewController {
         return img
     }()
     
-    var namePlayer: UILabel = {
+    lazy var namePlayer: UILabel = {
         let lbl = UILabel()
         lbl.textColor = UIColor(red: 0.02, green: 0.58, blue: 0.40, alpha: 1.00)
         lbl.text = "namePlayer"
@@ -29,7 +29,7 @@ class PlayerViewController: UIViewController {
         return lbl
     }()
     
-    var valuePlayer: UILabel = {
+    lazy var valuePlayer: UILabel = {
         let lbl = UILabel()
         lbl.textColor = .black
         lbl.text = "valuePlayer"
@@ -37,7 +37,7 @@ class PlayerViewController: UIViewController {
         return lbl
     }()
     
-    var positionPlayer: UILabel = {
+    lazy var positionPlayer: UILabel = {
         let lbl = UILabel()
         lbl.textColor = .black
         lbl.text = "positionPlayer"
@@ -45,7 +45,7 @@ class PlayerViewController: UIViewController {
         return lbl
     }()
     
-    var rangePlayer: UILabel = {
+    lazy var rangePlayer: UILabel = {
         let lbl = UILabel()
         lbl.textColor = .black
         lbl.text = "rangePlayer"
@@ -53,6 +53,15 @@ class PlayerViewController: UIViewController {
         return lbl
     }()
     
+    lazy var progressBar: UIProgressView = {
+        let pv = UIProgressView()
+        pv.progressViewStyle = .default
+        pv.tintColor = Utils.foregroundProgress
+        pv.progress = 0.5
+        pv.backgroundColor = Utils.backgroundProgress
+        pv.layer.cornerRadius = 4
+        return pv
+    }()
     
     
     init(playerId:String) {
@@ -66,8 +75,18 @@ class PlayerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(red: 0.93, green: 0.92, blue: 0.88, alpha: 1.00)
+        view.backgroundColor = Utils.backgroundColorPlayer
         title = "Player"
+        setup()
+        progressBar.subviews.forEach { view in
+            view.layer.cornerRadius = 4
+        }
+        
+        let player = PlayerModel(idPlayer: 1, namePlayer: "Guillermo Ochoa", valuePlayer: 100000.2, positionPlayer: "Goalkepper", rangePlayer: "28", imgPlayer: "")
+        configureView(player: player )//mover a la llamada de la API
+    }
+    
+    func setup() {
         view.addSubview(avatarPlayer)
         avatarPlayer.translatesAutoresizingMaskIntoConstraints = false
         avatarPlayer.widthAnchor.constraint(equalTo: view.heightAnchor).isActive = true
@@ -95,11 +114,27 @@ class PlayerViewController: UIViewController {
         rangePlayer.translatesAutoresizingMaskIntoConstraints = false
         rangePlayer.centerYAnchor.constraint(equalTo: positionPlayer.centerYAnchor, constant: 40).isActive = true
         rangePlayer.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-       
         
-        
-        if let playerId = playerId {
-            print(":::: el jugador que se debe consultar es: \(playerId)")
-        }
+        view.addSubview(progressBar)
+        progressBar.translatesAutoresizingMaskIntoConstraints = false
+        progressBar.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        progressBar.topAnchor.constraint(equalTo: rangePlayer.bottomAnchor, constant: 10).isActive = true
+        progressBar.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        progressBar.heightAnchor.constraint(equalToConstant: 8).isActive = true
     }
+    
+    func configureView(player:PlayerModel) {
+        title = player.namePlayer
+        namePlayer.text = ""
+        valuePlayer.text = "$ \(player.valuePlayer ?? 0.0)"
+        positionPlayer.text = player.positionPlayer
+        rangePlayer.text = player.rangePlayer
+        
+        if let progress = Float(player.rangePlayer ?? "0.0") {
+            progressBar.progress = (progress / 100)
+        }
+        
+    }
+    
+    
 }

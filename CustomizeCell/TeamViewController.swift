@@ -45,7 +45,7 @@ class TeamViewController: UIViewController {
         
         view.addSubview(tableView)
         tableView.frame = view.bounds
-        tableView.backgroundColor = .white
+        tableView.backgroundColor = .yellow
         tableView.separatorStyle = .none
     
     }
