@@ -5,9 +5,12 @@
 //  Created by Cesar  Perez Catalan on 07/12/22.
 //
 import UIKit
+import Alamofire
+
 class TeamCustomCell: UITableViewCell {
 
     static let identifier = "CustomCell"
+    var ImgPlayerText: String?
     
     lazy var viewGeneralContainer: UIView = {
         let view = UIView()
@@ -69,9 +72,25 @@ class TeamCustomCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func getImageFromURL(url:String, avatarPlayer: UIImageView){
+
+        AF.request(url).response{ [weak self] response in
+            if let data = response.data{
+                avatarPlayer.image = UIImage(data: data, scale: 1)
+            }
+        }
+    }
+    
+    func configure(name: String,position: String,playerImg: String ){
+        lblName.text = name
+        lblPosition.text = position
+        ImgPlayerText = playerImg
+        
+        getImageFromURL(url: ImgPlayerText ?? "NONE", avatarPlayer: avatarPlayer)
+    }
     
     func setupCell(){
-        contentView.backgroundColor = .yellow
+       
         contentView.addSubview(viewGeneralContainer)
         viewGeneralContainer.translatesAutoresizingMaskIntoConstraints = false
         viewGeneralContainer.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true

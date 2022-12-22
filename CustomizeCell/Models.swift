@@ -31,3 +31,15 @@ struct PlayerModel : Codable{
     let rangePlayer : String?
     let imgPlayer : String?
 }
+
+struct FIFAModel : Codable{
+    
+    let country : String?
+    let playerId: String?
+    let position : String?
+    let name : String?
+    let playerImg : String?
+    let countryLogo : String?
+    let countryFlag : String?
+    
+}
