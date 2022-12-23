@@ -11,12 +11,11 @@ import Alamofire
 
 class TeamViewController: UIViewController {
     
-    var team:String?
     var tableView = UITableView()
-    var dataTable = [FIFAModel]()
+    var dataTable:[FIFAModel]
     
-    init(team:String) {
-        self.team = team
+    init(team:[FIFAModel]) {
+        self.dataTable = team
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -33,8 +32,6 @@ class TeamViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        title = team
-        fetchData()
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.register(TeamCustomCell.self, forCellReuseIdentifier: TeamCustomCell.identifier)
@@ -48,16 +45,16 @@ class TeamViewController: UIViewController {
         tableView.separatorStyle = .none
     
     }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+    }
     
-    func fetchData() {
-        AF.request("https://world-cup.dvrosenvb.com/").response{ [weak self] response in
-            
-            if let data = response.data {
-                let decoder = JSONDecoder()
-                let dataFetched = try! decoder.decode([FIFAModel].self, from: data)
-                self?.dataTable = dataFetched
-                self?.tableView.reloadData()
-            }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        tableView.reloadData()
+        if let titleStr = dataTable[0].country{
+            title = titleStr
         }
     }
 }

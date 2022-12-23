@@ -50,6 +50,7 @@ class PlayerViewController: UIViewController {
         let lbl = UILabel()
         lbl.textColor = .black
         lbl.text = "Valor: "
+        lbl.textAlignment = .left
         lbl.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         return lbl
     }()
@@ -58,6 +59,7 @@ class PlayerViewController: UIViewController {
         let lbl = UILabel()
         lbl.textColor = .black
         lbl.text = position
+        lbl.textAlignment = .left
         lbl.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         return lbl
     }()
@@ -66,6 +68,7 @@ class PlayerViewController: UIViewController {
         let lbl = UILabel()
         lbl.textColor = .black
         lbl.text = "Posición: "
+        lbl.textAlignment = .left
         lbl.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         return lbl
     }()
@@ -74,6 +77,7 @@ class PlayerViewController: UIViewController {
         let lbl = UILabel()
         lbl.textColor = .black
         lbl.text = "\(String(average!))"
+        lbl.textAlignment = .left
         lbl.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         return lbl
     }()
@@ -82,6 +86,7 @@ class PlayerViewController: UIViewController {
         let lbl = UILabel()
         lbl.textColor = .black
         lbl.text = "Rango: "
+        lbl.textAlignment = .left
         lbl.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         return lbl
     }()

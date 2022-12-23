@@ -12,7 +12,8 @@ class HomeViewController: UIViewController {
     
     var tableView = UITableView()
     var dataTable = [FIFAModel]()
-    var arrayCountry = [String]()
+    var dataTeams : [String] = []
+    var dataPlayers = [FIFAModel]()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -45,22 +46,46 @@ class HomeViewController: UIViewController {
                 let decoder = JSONDecoder()
                 let dataFetched = try! decoder.decode([FIFAModel].self, from: data)
                 self?.dataTable = dataFetched
-                self?.tableView.reloadData()
+                self?.notRepeated(dataTable: dataFetched)
+//                self?.tableView.reloadData()
             }
         }
     }
     
-    func notRepeated(dataTable: Data){
-        
-        
-        
+    func notRepeated(dataTable: [FIFAModel]){
+        var lastCountry = ""
+        var currentCountry = ""
+        dataTable.forEach { item in
+            if let itemTemp = item.country {
+                currentCountry = itemTemp
+                if currentCountry != lastCountry {
+                    lastCountry = currentCountry
+                    dataTeams.append(currentCountry)
+                }
+            }
+            
+        }
+        tableView.reloadData()
+    }
+    
+    
+    func filterPlayer(dataTable: [FIFAModel], country:String){
+  
+        dataTable.forEach { item in
+            if let currentItem = item.country {
+                if currentItem == country{
+                    dataPlayers.append(item)
+                }
+            }
+        }
+                
     }
         
 }
 
 extension HomeViewController:UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataTable.count
+        return dataTeams.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -69,7 +94,7 @@ extension HomeViewController:UITableViewDataSource, UITableViewDelegate{
             return UITableViewCell()
         }
         
-        var country = dataTable[indexPath.row].country ?? "NONE"
+        var country = dataTeams[indexPath.row]
         var countryLogo = dataTable[indexPath.row].countryLogo ?? "NONE"
         cell.configure(country: country,countryLogo: countryLogo )
 
@@ -82,7 +107,9 @@ extension HomeViewController:UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let team = TeamViewController(team: dataTable[indexPath.row].country ?? "NONE")
+        filterPlayer(dataTable: dataTable,country: dataTeams[indexPath.row])
+        let team = TeamViewController(team: dataPlayers)
         navigationController?.pushViewController(team, animated: true)
+        dataPlayers = []
     }
 }
