@@ -88,7 +88,7 @@ class PlayerViewController: UIViewController {
     
     lazy var lblATK: UILabel = {
         let lbl = UILabel()
-        lbl.textColor = .black
+        lbl.textColor = .gray
         lbl.text = "Ataque"
         lbl.font = UIFont.systemFont(ofSize: 10, weight: .bold)
         return lbl
@@ -96,7 +96,7 @@ class PlayerViewController: UIViewController {
     
     lazy var lblDEF: UILabel = {
         let lbl = UILabel()
-        lbl.textColor = .black
+        lbl.textColor = .gray
         lbl.text = "Defensa"
         lbl.font = UIFont.systemFont(ofSize: 10, weight: .bold)
         return lbl
@@ -104,7 +104,7 @@ class PlayerViewController: UIViewController {
     
     lazy var lblRitmo: UILabel = {
         let lbl = UILabel()
-        lbl.textColor = .black
+        lbl.textColor = .gray
         lbl.text = "Ritmo"
         lbl.font = UIFont.systemFont(ofSize: 10, weight: .bold)
         return lbl
@@ -112,7 +112,7 @@ class PlayerViewController: UIViewController {
     
     lazy var lblPhy: UILabel = {
         let lbl = UILabel()
-        lbl.textColor = .black
+        lbl.textColor = .gray
         lbl.text = "Físico"
         lbl.font = UIFont.systemFont(ofSize: 10, weight: .bold)
         return lbl
@@ -193,7 +193,6 @@ class PlayerViewController: UIViewController {
         progressBarPhy.subviews.forEach { view in
             view.layer.cornerRadius = 4
         }
-        
     }
     
     func getImageFromURL(url:String, avatarPlayer: UIImageView){
@@ -222,7 +221,7 @@ class PlayerViewController: UIViewController {
         view.addSubview(lblValue)
         lblValue.translatesAutoresizingMaskIntoConstraints = false
         lblValue.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 80).isActive = true
-        lblValue.centerXAnchor.constraint(equalTo: view.leadingAnchor, constant: 50).isActive = true
+        lblValue.centerXAnchor.constraint(equalTo: view.leadingAnchor, constant: 65).isActive = true
         
         view.addSubview(valuePlayer)
         valuePlayer.translatesAutoresizingMaskIntoConstraints = false
@@ -242,12 +241,12 @@ class PlayerViewController: UIViewController {
         view.addSubview(lblRange)
         lblRange.translatesAutoresizingMaskIntoConstraints = false
         lblRange.centerYAnchor.constraint(equalTo: lblPosition.centerYAnchor, constant: 30).isActive = true
-        lblRange.centerXAnchor.constraint(equalTo: view.leadingAnchor, constant: 50).isActive = true
+        lblRange.centerXAnchor.constraint(equalTo: view.leadingAnchor, constant: 60).isActive = true
         
         view.addSubview(rangePlayer)
         rangePlayer.translatesAutoresizingMaskIntoConstraints = false
         rangePlayer.centerYAnchor.constraint(equalTo: lblRange.centerYAnchor).isActive = true
-        rangePlayer.centerXAnchor.constraint(equalTo: lblRange.trailingAnchor, constant: 30).isActive = true
+        rangePlayer.centerXAnchor.constraint(equalTo: lblRange.trailingAnchor, constant: 25).isActive = true
         
         view.addSubview(lblATK)
         lblATK.translatesAutoresizingMaskIntoConstraints = false
@@ -296,11 +295,9 @@ class PlayerViewController: UIViewController {
         progressBarPhy.topAnchor.constraint(equalTo: lblPhy.bottomAnchor, constant: 5).isActive = true
         progressBarPhy.widthAnchor.constraint(equalToConstant: 300).isActive = true
         progressBarPhy.heightAnchor.constraint(equalToConstant: 8).isActive = true
-        
     }
     
     func configureView() {
-        
         randomDouble = Double.random(in: 1...1000000)
         randomFloatATK = Float.random(in: 0.0...0.9)
         randomFloatDEF = Float.random(in: 0.0...0.9)
@@ -308,6 +305,4 @@ class PlayerViewController: UIViewController {
         randomFloatphy = Float.random(in: 0.0...0.9)
         average = Int.random(in: 70...94)
     }
-    
-    
 }

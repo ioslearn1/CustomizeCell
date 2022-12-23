@@ -18,7 +18,6 @@ class TeamCustomCell: UITableViewCell {
         return view
     }()
     
-    
     lazy var viewContainer: UIView = {
         let view = UIView()
         view.layer.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.00).cgColor
@@ -131,5 +130,4 @@ class TeamCustomCell: UITableViewCell {
         avatarPlayer.centerYAnchor.constraint(equalTo: viewGeneralContainer.centerYAnchor).isActive = true
        
     }
-
 }

@@ -87,5 +87,4 @@ extension TeamViewController:UITableViewDataSource, UITableViewDelegate{
         let player = PlayerViewController(playerId: dataTable[indexPath.row].playerId ?? "NONE", name: dataTable[indexPath.row].name ?? "NONE", position: dataTable[indexPath.row].position ?? "NONE", playerImg: dataTable[indexPath.row].playerImg ?? "NONE")
         navigationController?.pushViewController(player, animated: true)
     }
-    
 }

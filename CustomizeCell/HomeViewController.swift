@@ -12,6 +12,7 @@ class HomeViewController: UIViewController {
     
     var tableView = UITableView()
     var dataTable = [FIFAModel]()
+    var arrayCountry = [String]()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -25,7 +26,6 @@ class HomeViewController: UIViewController {
         title = "National Teams"
         view.backgroundColor = .white
         fetchData()
-        notRepeated()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.register(CustomCell.self, forCellReuseIdentifier: CustomCell.identifier)
         
@@ -50,7 +50,9 @@ class HomeViewController: UIViewController {
         }
     }
     
-    func notRepeated(){
+    func notRepeated(dataTable: Data){
+        
+        
         
     }
         
@@ -83,5 +85,4 @@ extension HomeViewController:UITableViewDataSource, UITableViewDelegate{
         let team = TeamViewController(team: dataTable[indexPath.row].country ?? "NONE")
         navigationController?.pushViewController(team, animated: true)
     }
-    
 }
