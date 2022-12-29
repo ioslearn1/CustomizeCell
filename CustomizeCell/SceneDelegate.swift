@@ -24,6 +24,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.rootViewController = mainNC
         window.makeKeyAndVisible()
         
+        UINavigationBar.appearance().barTintColor = UIColor.red
+        
+        
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {

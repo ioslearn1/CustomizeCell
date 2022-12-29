@@ -25,6 +25,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         title = "National Teams"
+        configureNavigation()
         view.backgroundColor = .white
         fetchData()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
@@ -37,6 +38,15 @@ class HomeViewController: UIViewController {
         tableView.frame = view.bounds
         tableView.backgroundColor = .white
         tableView.separatorStyle = .none
+    }
+    
+    func configureNavigation()  {
+        
+        let attributes = [NSAttributedString.Key.foregroundColor:UIColor(red: 0.59, green: 0.04, blue: 0.20, alpha: 1.00), NSAttributedString.Key.font:UIFont(name: "Verdana-bold", size: 20)]
+        
+        self.navigationController?.navigationBar.titleTextAttributes = attributes as [NSAttributedString.Key : Any]
+        
+        self.navigationController?.navigationBar.tintColor = UIColor(red: 0.59, green: 0.04, blue: 0.20, alpha: 1.00)
     }
     
     func fetchData() {
@@ -78,7 +88,6 @@ class HomeViewController: UIViewController {
                 }
             }
         }
-                
     }
         
 }
