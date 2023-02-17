@@ -2,7 +2,7 @@
 //  CustomCell.swift
 //  CustomizeCell
 //
-//  Created by Rosendo Vazquez on 01/12/22.
+//  Created by Cesar Perez Catalan on 01/12/22.
 //
 import UIKit
 import Alamofire
